@@ -1,0 +1,16 @@
+"use strict";
+var number123 = 83;
+console.log(number123);
+var AutoData = 234;
+console.log(AutoData);
+var conditionVar = 'Wasim';
+console.log(conditionVar);
+var Stirng1 = '40';
+var varable2 = 43;
+console.log(Number(Stirng1) + varable2);
+var octualValue = 0o102342;
+console.log(octualValue);
+var hexaValue = 0x000023;
+console.log(hexaValue);
+var binaryValue = 0b0001;
+console.log(binaryValue);
