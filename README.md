@@ -21,11 +21,11 @@ More advanced concepts like `enums`, `interfaces`, `classes`, and `generics` wil
 ## ⚙️ How to Run
 #install typescript
 npm install typescript
-# run the typescript file
+## run the typescript file
 npx tsc filename or file path
-# coverting All typescript in javascript
+## coverting All typescript in javascript
 tsc run this commond on your terminal
-# running the Javascript file in your server side. So install nodemon 
+## running the Javascript file in your server side. So install nodemon 
 npm i nodemon
 ### 1. Clone the Repository
 git clone https://github.com/hasnain23233/TypeScript_Class.git
