@@ -13,6 +13,33 @@ It covers TypeScript fundamentals including primitive types, arrays, tuples, obj
 - ✅ Tuples
 - ✅ Object Types
 - ✅ Special Types: `any`, `unknown`
+- ✅ Functions and Return Types
+
+- Learned how to define functions in TypeScript with specific parameter and return types.
+- Explored the `void` type for functions that don't return anything.
+- Understood the `never` type for functions that never return (e.g., those that throw errors).
+- Worked with function parameters including:
+  - Required parameters
+  - Optional parameters (`?`)
+  - Default parameters
+
+```ts
+function greet(name: string): string {
+  return `Hello, ${name}`;
+}
+
+function logMessage(message: string): void {
+  console.log(message);
+}
+
+function throwError(error: string): never {
+  throw new Error(error);
+}
+
+function add(a: number, b: number = 5): number {
+  return a + b;
+}
+
 
 More advanced concepts like `enums`, `interfaces`, `classes`, and `generics` will be added as I continue learning. 🚀
 
