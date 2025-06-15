@@ -30,14 +30,16 @@ var Login = /** @class */ (function () {
     };
     return Login;
 }());
-var fvtSports = /** @class */ (function () {
+var fvtSports = /** @class */ (function (_super) {
+    __extends(fvtSports, _super);
     function fvtSports() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     fvtSports.prototype.youGame = function (gameName) {
         return gameName;
     };
     return fvtSports;
-}());
+}(Login));
 var otherGame = /** @class */ (function (_super) {
     __extends(otherGame, _super);
     function otherGame() {

@@ -20,7 +20,7 @@ class Login {
     }
   }
 
-class fvtSports{
+class fvtSports extends Login{
     youGame(gameName:string):string {
         return gameName
     }
