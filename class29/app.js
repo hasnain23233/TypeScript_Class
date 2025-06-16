@@ -2,7 +2,6 @@
 var Company = /** @class */ (function () {
     function Company() {
     }
-    Company.myfvtCompany = 'meta';
     return Company;
 }());
 var Counter = /** @class */ (function () {
@@ -23,5 +22,6 @@ Counter.increment();
 Counter.increment();
 Counter.increment();
 console.log(Counter.getCount());
-// let myFvt = new Company)
+// let myFvt = new Company('meta')
+// console.log(myFvt.myfvtCompany)
 console.log(Company.myfvtCompany);

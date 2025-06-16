@@ -1,7 +1,7 @@
 ///In this class we learn the static key word  and How to use this in classes. So let`s start
 
 class Company {
-    static myfvtCompany: string  = 'meta'
+    static myfvtCompany: string 
 
 }
 class Counter {
@@ -24,6 +24,7 @@ class Counter {
   
   console.log(Counter.getCount());
   
-// let myFvt = new Company)
+// let myFvt = new Company('meta')
+// console.log(myFvt.myfvtCompany)
 
 console.log(Company.myfvtCompany)
