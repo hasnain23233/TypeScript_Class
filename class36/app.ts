@@ -6,7 +6,7 @@ function updateSportData(target: any, descriptor: PropertyDescriptor) {
 }
 
 class sportData {
-    @updateSportData
+    // @updateSportData
     asif(x: number, y: number): string {
         return `${x + y}`;
     }
