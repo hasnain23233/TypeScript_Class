@@ -1,272 +1,219 @@
-# TypeScript Class Repository 🚀
+# 🌟 TypeScript Class Repository 🚀
 
 Welcome to the **TypeScript_Class** repository!  
 This project is a personal learning space where I explore and implement TypeScript concepts step-by-step.  
-It covers TypeScript fundamentals from basic types to advanced OOP concepts.
+It covers TypeScript fundamentals from basic types to advanced OOP, type utilities, and real-world use cases.
 
 ---
 
 ## 📚 Topics Covered
-```ts
-### ✅ Primitive Data Types
 
+```ts
+// ✅ Primitive Data Types
 let name: string = "Alice";
 let age: number = 30;
 let isStudent: boolean = true;
-### ✅ Arrays & Tuples
-ts
-// Array
+
+// ✅ Arrays & Tuples
 let fruits: string[] = ["Apple", "Banana"];
-
-// Tuple (fixed-type array)
 let person: [string, number] = ["Alice", 30];
- ### ✅ Object Types
-ts
-let user: { 
-  name: string; 
-  age: number 
-} = {
-  name: "Bob",
-  age: 25
-};
-### ✅ Special Types: any and unknown
-ts
-let random: any = "Could be anything";
-random = 42;  // No error
 
+// ✅ Object Types
+let user: { name: string; age: number } = { name: "Bob", age: 25 };
+
+// ✅ Special Types: any and unknown
+let random: any = "Could be anything";
+random = 42;
 let uncertain: unknown = "Hello";
-// uncertain.toUpperCase(); // Error - must type check first
-### ✅ Functions and Return Types
-ts
+
+// ✅ Functions and Return Types
 function greet(name: string): string {
   return `Hello, ${name}`;
 }
+function register(email: string, phone?: string) {}
 
-### // Optional parameters
-function register(email: string, phone?: string) {
-  // ...
-}
-### ✅ Union Types
-ts
+// ✅ Union Types
 let id: string | number;
-id = "ABC123";  // OK
-id = 123;       // OK
-// id = true;   // Error
-### ✅ Type Aliases
-ts
+id = "ABC123";
+id = 123;
+
+// ✅ Type Aliases
 type UserID = string | number;
-type Point = {
-  x: number;
-  y: number;
-};
-### ✅ Interfaces
-ts
+type Point = { x: number; y: number };
+
+// ✅ Interfaces
 interface Person {
   name: string;
   age: number;
 }
+const alice: Person = { name: "Alice", age: 28 };
 
-const alice: Person = {
-  name: "Alice",
-  age: 28
-};
-### ✅ Intersection Types
-ts
+// ✅ Intersection Types
 interface Employee {
   id: number;
 }
-
 type Manager = Person & Employee;
+const bob: Manager = { name: "Bob", age: 35, id: 123 };
 
-const bob: Manager = {
-  name: "Bob",
-  age: 35,
-  id: 123
-};
-### 🔄 Union vs Intersection vs Interface
-### | Feature | Union (|) | Intersection (&) | Interface |
-### |------------------|-------------------|----------------------|------------------|
-### | Purpose | "OR" relationship | "AND" relationship | Define shape |
-### | Type Combination | One of the types | Combine all features | Contract |
-### | Example | string | number | Person & Employee | interface Person {...} |
-
-### ✅ Enums
-ts
+// ✅ Enums
 enum Direction {
   Up = "UP",
   Down = "DOWN",
   Left = "LEFT",
   Right = "RIGHT"
 }
-
 let move: Direction = Direction.Up;
-### ✅ DOM Manipulation & Type Casting
-ts
-// Type assertion
-const button = document.getElementById("submit") as HTMLButtonElement;
-button.disabled = true;
 
-// Alternative syntax
+// ✅ DOM Manipulation & Type Casting
+const button = document.getElementById("submit") as HTMLButtonElement;
 const input = <HTMLInputElement>document.getElementById("email");
-input.value = "test@example.com";
-### ✅ Classes
-ts
+
+// ✅ Classes
 class Animal {
-  name: string;
-  
-  constructor(name: string) {
-    this.name = name;
-  }
-  
+  constructor(public name: string) {}
   speak(): void {
     console.log(`${this.name} makes a sound`);
   }
 }
 
-const dog = new Animal("Rex");
-dog.speak();  // "Rex makes a sound"
-### ✅ Access Modifiers
-ts
+// ✅ Access Modifiers & Inheritance
 class BankAccount {
-  public readonly id: number;   // Accessible everywhere
-  private balance: number;      // Only accessible within class
-  protected owner: string;      // Accessible in class and subclasses
-
+  public readonly id: number;
+  private balance: number;
+  protected owner: string;
   constructor(id: number, owner: string) {
     this.id = id;
     this.owner = owner;
     this.balance = 0;
   }
 }
-### ✅ Inheritance
-ts
 class SavingsAccount extends BankAccount {
-  interestRate: number;
-  
-  constructor(id: number, owner: string, rate: number) {
+  constructor(id: number, owner: string, public interestRate: number) {
     super(id, owner);
-    this.interestRate = rate;
   }
-  
   addInterest(): void {
-    // Can access protected owner but not private balance
     console.log(`Adding interest to ${this.owner}'s account`);
   }
 }
-### ✅ Getters and Setters
-ts
+
+// ✅ Getters and Setters
 class Temperature {
   private _celsius: number = 0;
-  
   get celsius(): number {
     return this._celsius;
   }
-  
   set celsius(value: number) {
-    if (value < -273.15) {
-      throw new Error("Temperature below absolute zero!");
-    }
+    if (value < -273.15) throw new Error("Below absolute zero!");
     this._celsius = value;
   }
-  
   get fahrenheit(): number {
     return (this._celsius * 9/5) + 32;
   }
 }
 
-const temp = new Temperature();
-temp.celsius = 25;  // Uses setter
-console.log(temp.fahrenheit);  // 77
-### ✅ Interfaces in Classes
-ts
+// ✅ Interfaces in Classes
 interface Drivable {
   startEngine(): void;
   drive(speed: number): void;
 }
-
 class Car implements Drivable {
-  startEngine() {
-    console.log("Engine started");
-  }
-  
-  drive(speed: number) {
-    console.log(`Driving at ${speed} km/h`);
-  }
+  startEngine() { console.log("Engine started"); }
+  drive(speed: number) { console.log(`Driving at ${speed} km/h`); }
 }
-### ✅ Static Members
-ts
+
+// ✅ Static Members
 class MathOperations {
-  static PI: number = 3.14;
-  
+  static PI = 3.14;
   static circleArea(radius: number): number {
     return this.PI * radius * radius;
   }
 }
 
-console.log(MathOperations.circleArea(5));  // 78.5
-### ✅ Modules
-ts
+// ✅ Modules
 // math.ts
-export function add(a: number, b: number): number {
-  return a + b;
-}
-
+export function add(a: number, b: number): number { return a + b; }
 // app.ts
 import { add } from './math';
-console.log(add(2, 3));  // 5
-### ⚙️ How to Run
-Install dependencies:
+console.log(add(2, 3));
 
-bash
-###npm install typescript nodemon
-Compile TypeScript:
+// ✅ Type Guards
+function printId(id: number | string) {
+  if (typeof id === "string") console.log(id.toUpperCase());
+  else console.log(id);
+}
+class Dog { bark() {} }
+class Cat { meow() {} }
+function isDog(pet: Dog | Cat): pet is Dog {
+  return (pet as Dog).bark !== undefined;
+}
 
-bash
-npx tsc filename.ts   # Single file
-npx tsc               # All files
-Run JavaScript:
+// ✅ Generics
+function identity<T>(arg: T): T { return arg; }
+let output = identity<string>("Hello");
 
-bash
-node filename.js
-# OR with nodemon for live reload
-npx nodemon filename.js
-Clone and Explore:
-bash
+// ✅ keyof and Index Signature
+interface Person { name: string; age: number; }
+function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+  return obj[key];
+}
+interface DynamicObject {
+  [key: string]: number;
+}
+let salaries: DynamicObject = { Alice: 1000, Bob: 1200 };
+
+// ✅ Utility Types
+interface Todo {
+  title: string;
+  description: string;
+}
+const todo1: Partial<Todo> = { title: "Clean room" };
+const todo2: Required<Todo> = { title: "Code", description: "TS" };
+const todo3: Readonly<Todo> = { title: "Sleep", description: "Zzz" };
+type Omitted = Omit<Todo, "description">;
+type Extracted = Extract<"a" | "b", "a">;
+type Excluded = Exclude<"a" | "b", "b">;
+type RecordMap = Record<string, number>;
+
+// ✅ Namespaces
+namespace Geometry {
+  export function squareArea(side: number): number {
+    return side * side;
+  }
+  export function rectangleArea(w: number, h: number): number {
+    return w * h;
+  }
+}
+```
+
+---
+
+## ⚙️ How to Run
+```bash
+npm install typescript nodemon
+npx tsc filename.ts        # Compile single file
+npx tsc                    # Compile all files
+node filename.js           # Run compiled JS
+npx nodemon filename.js    # Auto-reload on changes
+```
+
+---
+
+## 📂 Clone and Explore
+```bash
 git clone https://github.com/hasnain23233/TypeScript_Class.git
 cd TypeScript_Class
 npm install
-🚀 Next Steps
-Generics
+```
 
-Decorators
+---
 
-Advanced Type Manipulation
+## 🚀 Next Steps
+- Advanced Type Manipulation
+- TypeScript with React / Vue
+- Decorators
+- TypeScript Configurations (tsconfig.json)
+- Open Source Contributions
 
-TypeScript with React/Vue
+---
 
-Configuration (tsconfig.json)
-
-Happy Coding! 👨‍💻
-
-text
-
-### Key features of this README:
-1. Complete coverage of all requested topics in logical order
-2. Beginner-friendly examples for each concept with clear comments
-3. Visual comparison table for union/intersection/interface
-4. Practical DOM manipulation examples
-5. Real-world class implementations (BankAccount, Temperature, etc.)
-6. Clear visual hierarchy with emojis and spacing
-7. Includes installation and usage instructions
-8. Organized from basic to advanced concepts
-9. Added "Next Steps" section for future learning
-10. Maintained consistent ✅ emoji for all topics
-
-The examples are designed to:
-- Show practical use cases (like form elements for DOM casting)
-- Demonstrate error cases (Temperature setter validation)
-- Highlight real OOP patterns (BankAccount inheritance)
-- Show modern TS features (getters/setters, static members)
-- Include both simple and complex implementations
-
-All code snippets are self-contained and can be directly copied into TypeScript files to experiment with.
+> 💙 **Built with passion by Hasnain Khushi** — Happy Coding! 👨‍💻
